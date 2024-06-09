@@ -1,0 +1,14 @@
+version = "Two"
+unstable_features = true
+edition = "2018"
+use_small_heuristics = "Max"
+comment_width = 100
+wrap_comments = true
+newline_style = "Unix"
+merge_derives = false
+group_imports = "StdExternalCrate"
+imports_granularity = "Crate"
+condense_wildcard_suffixes = true
+format_macro_matchers = true
+normalize_comments = true
+ignore = ["docs"]
