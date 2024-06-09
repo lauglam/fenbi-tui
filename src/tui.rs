@@ -14,8 +14,8 @@ pub type Tui = Terminal<CrosstermBackend<Stdout>>;
 
 /// 设置终端。
 pub fn init() -> Result<Tui> {
-    // 首先，应用程序进入备用屏幕，这是一个辅助屏幕，允许您的应用程序呈现所需的任何内容，而不会干扰
-    // shell 中终端应用程序的正常输出。
+    // 首先，应用程序进入备用屏幕，这是一个辅助屏幕，允许您的应用程序呈现所需的任何内容，
+    // 而不会干扰 shell 中终端应用程序的正常输出。
     execute!(stdout(), EnterAlternateScreen, EnableMouseCapture)?;
     // 接下来，应用程序启用原始模式，这会关闭终端的输入和输出处理。
     // 这使您的应用程序可以控制何时将字符打印到屏幕上。
