@@ -6,13 +6,13 @@
 mod app;
 mod events;
 mod tui;
-mod ui;
+mod utils;
 
 /// `main` 函数通过调用 `tui` 模块中的方法来设置终端，然后创建并运行应用程序。
 fn main() -> std::io::Result<()> {
-    let mut terminal = tui::init()?;
+    let mut terminal = utils::init()?;
     let mut app = app::App::new();
-    tui::run_app(&mut terminal, &mut app)?;
-    tui::restore()?;
+    utils::run_app(&mut terminal, &mut app)?;
+    utils::restore()?;
     Ok(())
 }

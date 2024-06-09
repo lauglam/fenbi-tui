@@ -7,7 +7,7 @@ use crossterm::{
 };
 use ratatui::{backend::CrosstermBackend, Terminal};
 
-use crate::{app::App, events, ui};
+use crate::{app::App, events, tui};
 
 /// 此应用程序中使用的终端类型的类型别名。
 pub type Tui = Terminal<CrosstermBackend<Stdout>>;
@@ -38,7 +38,7 @@ pub fn restore() -> Result<()> {
 /// 使用新的 run 方法为 App 创建一个 impl 块，该方法将充当应用程序的主循环。
 pub fn run_app(terminal: &mut Tui, app: &mut App) -> Result<()> {
     while !app.exit {
-        terminal.draw(|frame| ui::render_frame(frame, app))?;
+        terminal.draw(|frame| tui::render_frame(frame, app))?;
         events::handle_events(app)?;
     }
 
